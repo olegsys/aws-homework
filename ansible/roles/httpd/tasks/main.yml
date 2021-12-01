@@ -1,0 +1,25 @@
+---
+- name: Install Apache
+  package:
+    name: httpd
+    state: present
+
+- name: Enable Apache
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Create document root
+  file:
+    path: "{{ doc_root }}"
+    state: directory
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: '0755'
+
+- name: Set up Apache VirtualHost
+  template:
+    src: "httpd.conf.j2"
+    dest: "/etc/httpd/conf.d/{{ http_host }}.conf"
+  notify: Restart Apache

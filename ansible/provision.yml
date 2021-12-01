@@ -1,0 +1,19 @@
+---
+- hosts: wordpress-node-a  
+  become: true
+  roles:
+  - { role: httpd, become: yes }
+  - { role: php, become: yes }  
+  - { role: wordpress, become: yes }
+  vars_files:
+    - vars/default.yml
+    - vars/dbserver.yml
+
+- hosts: wordpress-node-b
+  become: true
+  roles:
+  - { role: httpd, become: yes }
+  - { role: php, become: yes }  
+  vars_files:
+    - vars/default.yml
+    - vars/dbserver.yml

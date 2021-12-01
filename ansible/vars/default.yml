@@ -1,0 +1,16 @@
+# System Settings
+owner: apache
+group: apache
+
+#HTTP Settings
+http_host: "olegsys.tk"
+http_port: "80"
+https_port: "443"
+doc_root: "/var/www/html/{{ http_host }}"
+
+#MySQL Settings
+mysql_root_password: "mysql_root_password"
+mysql_db: "wordpressdb"
+mysql_user: "user"
+mysql_password: "my_db_password"
+
