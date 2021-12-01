@@ -5,5 +5,7 @@
 
         terraform apply
 3. Установить wordpress на сервера
-    cd ./ansible/
-    ansible-playbook provision.yml
+
+        cd ./ansible/
+
+        ansible-playbook provision.yml
